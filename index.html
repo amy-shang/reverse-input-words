@@ -26,22 +26,28 @@
     }
   </style>
   <script>
-     function reverse_input(){
+     function main(){
          //first reset the display area
          this.reset_result();
          //handle the data from user input
-         var text = document.getElementById("text-input").value
+         //display
+         document.getElementById("show").innerHTML = this.process_input();
+         document.getElementById("reverse-text").style.display = "block";
+     }
+
+     // data processing
+     function process_input(){
+        var text = document.getElementById("text-input").value
          if(text===''){
              return
          }
          var arr_words = text.split(" ");
-         var reversed ="";
+         var result ="";
          for(var i=0;i<arr_words.length;i++){
             var word = arr_words[i];
-            reversed += " " + this.reverse_string(word);
+            result += " " + this.reverse_string(word);
          }
-         document.getElementById("show").innerHTML = reversed;
-         document.getElementById("reverse-text").style.display = "block";
+         return result
      }
 
      //reverse a string in place
@@ -61,7 +67,7 @@
     <h3>Reverse word</h3>
     <textarea id="text-input" class="form-control" rows="5" id="comment" name="text" 
       placeholder="type in something and click the reverse button" oninput="reset_result()"></textarea>
-    <button id ="rev-button" class="btn btn-primary" onclick="reverse_input()">Reverse Words</button>
+    <button id ="rev-button" class="btn btn-primary" onclick="main()">Reverse Words</button>
 </div>
 <div class="container" id="reverse-text">
     <p id="show" class="lead" style="width: fit-content;height: fit-content;"></p>
