@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Reverse the inputs</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    #reverse-text{
+        margin-top: 20px;
+        display: none;
+    }
+    #rev-button{
+        margin-top: 20px;
+    }
+    textarea#text-input {
+        background:#e9ecef;
+    }
+    #show{
+        background-color: #adff2f40;
+        min-width: 100%;
+        min-height: 30px;
+    }
+  </style>
+  <script>
+     function reverse_input(){
+         //first reset the display area
+         this.reset_result();
+         //handle the data from user input
+         var text = document.getElementById("text-input").value
+         if(text===''){
+             return
+         }
+         var arr_words = text.split(" ");
+         var reversed ="";
+         for(var i=0;i<arr_words.length;i++){
+            var word = arr_words[i];
+            reversed += " " + this.reverse_string(word);
+         }
+         document.getElementById("show").innerHTML = reversed;
+         document.getElementById("reverse-text").style.display = "block";
+     }
+
+     //reverse a string in place
+     function reverse_string(s){
+        return s.split("").reverse().join("");
+     }
+     //empty the former result and hide the display element
+     function reset_result(){
+        document.getElementById("show").innerHTML = "";
+        document.getElementById("reverse-text").style.display = "none";
+     }  
+  </script>
+</head>
+<body>
+
+<div class="container">
+    <h3>Reverse word</h3>
+    <textarea id="text-input" class="form-control" rows="5" id="comment" name="text" 
+      placeholder="type in something and click the reverse button" oninput="reset_result()"></textarea>
+    <button id ="rev-button" class="btn btn-primary" onclick="reverse_input()">Reverse Words</button>
+</div>
+<div class="container" id="reverse-text">
+    <p id="show" class="lead" style="width: fit-content;height: fit-content;"></p>
+</div>
+
+</body>
+</html>
