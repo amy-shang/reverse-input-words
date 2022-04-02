@@ -26,7 +26,7 @@
     }
   </style>
   <script>
-     function main(){
+     const main = () => {
          //first reset the display area
          this.reset_result();
          //handle the data from user input
@@ -36,26 +36,26 @@
      }
 
      // data processing
-     function process_input(){
-        var text = document.getElementById("text-input").value
+     const process_input = () => {
+        let text = document.getElementById("text-input").value
          if(text===''){
              return
          }
-         var arr_words = text.split(" ");
-         var result ="";
-         for(var i=0;i<arr_words.length;i++){
-            var word = arr_words[i];
+         let arr_words = text.split(" ");
+         let result ="";
+         for(let i=0;i<arr_words.length;i++){
+            let word = arr_words[i];
             result += " " + this.reverse_string(word);
          }
          return result
      }
 
      //reverse a string in place
-     function reverse_string(s){
+     const reverse_string = (s) => {
         return s.split("").reverse().join("");
      }
      //empty the former result and hide the display element
-     function reset_result(){
+     const reset_result = () => {
         document.getElementById("show").innerHTML = "";
         document.getElementById("reverse-text").style.display = "none";
      }  
