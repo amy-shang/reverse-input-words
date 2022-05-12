@@ -28,10 +28,10 @@
   <script>
      const main = () => {
          //first reset the display area
-         this.reset_result();
+         reset_result;
          //handle the data from user input
          //display
-         document.getElementById("show").innerHTML = this.process_input();
+         document.getElementById("show").innerHTML = process_input;
          document.getElementById("reverse-text").style.display = "block";
      }
 
@@ -45,7 +45,7 @@
          let result ="";
          for(let i=0;i<arr_words.length;i++){
             let word = arr_words[i];
-            result += " " + this.reverse_string(word);
+            result += " " + reverse_string(word);
          }
          return result
      }
