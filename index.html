@@ -66,8 +66,8 @@
 <div class="container">
     <h3>Reverse word</h3>
     <textarea id="text-input" class="form-control" rows="5" id="comment" name="text" 
-      placeholder="type in something and click the reverse button" oninput="reset_result()"></textarea>
-    <button id ="rev-button" class="btn btn-primary" onclick="main()">Reverse Words</button>
+      placeholder="type in something and click the reverse button" oninput={reset_result}></textarea>
+    <button id ="rev-button" class="btn btn-primary" onclick={main}>Reverse Words</button>
 </div>
 <div class="container" id="reverse-text">
     <p id="show" class="lead" style="width: fit-content;height: fit-content;"></p>
